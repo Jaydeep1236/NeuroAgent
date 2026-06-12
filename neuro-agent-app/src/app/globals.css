@@ -1,0 +1,311 @@
+@import "tailwindcss";
+@theme {
+  /* Colors */
+  --color-primary: #dbfcff;
+  --color-on-primary: #00363a;
+  --color-primary-container: #00f0ff;
+  --color-on-primary-container: #006970;
+  --color-inverse-primary: #006970;
+  --color-primary-fixed: #7df4ff;
+  --color-primary-fixed-dim: #00dbe9;
+  --color-on-primary-fixed: #002022;
+  --color-on-primary-fixed-variant: #004f54;
+
+  --color-secondary: #dcb8ff;
+  --color-on-secondary: #480081;
+  --color-secondary-container: #7701d0;
+  --color-on-secondary-container: #dcb7ff;
+  --color-secondary-fixed: #efdbff;
+  --color-secondary-fixed-dim: #dcb8ff;
+  --color-on-secondary-fixed: #2c0051;
+  --color-on-secondary-fixed-variant: #6700b5;
+
+  --color-tertiary: #fff5de;
+  --color-on-tertiary: #3b2f00;
+  --color-tertiary-container: #fed639;
+  --color-on-tertiary-container: #715d00;
+  --color-tertiary-fixed: #ffe179;
+  --color-tertiary-fixed-dim: #eac324;
+  --color-on-tertiary-fixed: #231b00;
+  --color-on-tertiary-fixed-variant: #554500;
+
+  --color-surface: #131313;
+  --color-surface-dim: #131313;
+  --color-surface-bright: #3a3939;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+  --color-surface-variant: #353534;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #b9cacb;
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+
+  --color-background: #0e0e0e;
+  --color-on-background: #e5e2e1;
+
+  --color-outline: #849495;
+  --color-outline-variant: #3b494b;
+
+  --color-surface-tint: #00dbe9;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  /* Font Families */
+  --font-display: var(--font-sora), sans-serif;
+  --font-headline: var(--font-sora), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+  --font-sora: var(--font-sora), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-jetbrains: var(--font-jetbrains), monospace;
+
+  /* Font Sizes */
+  --text-display-lg: 48px;
+  --text-display-lg-mobile: 32px;
+  --text-headline-md: 24px;
+  --text-body-base: 16px;
+  --text-body-sm: 14px;
+  --text-mono-label: 12px;
+  --text-mono-reasoning: 13px;
+
+  /* Spacing */
+  --spacing-base: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 64px;
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 48px;
+  --spacing-gutter: 20px;
+
+  /* Border Radius */
+  --radius-default: 0.125rem;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Animations & Keyframes */
+  --animate-scan: scan 3s linear infinite;
+  --animate-scan-h: scanH 3s linear infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-scan-vertical: scan-vertical 4s linear infinite;
+  --animate-blink: blink 1s infinite;
+
+  @keyframes scan {
+    0% { top: 0%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  @keyframes scanH {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.05); }
+  }
+  @keyframes scan-vertical {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(1000%); }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+}
+
+:root {
+  --primary-glow: rgba(0, 219, 233, 0.15);
+  --neural-line: rgba(0, 219, 233, 0.3);
+}
+
+
+/* ==================== Glassmorphism Components ==================== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 219, 233, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 219, 233, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel {
+  background: rgba(14, 14, 14, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 219, 233, 0.15);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 219, 233, 0.15);
+}
+
+/* ==================== Luminous Effects ==================== */
+.luminous-edge {
+  box-shadow: inset 0 0 12px rgba(0, 219, 233, 0.05);
+}
+
+.neural-glow {
+  box-shadow: 0 0 40px -10px rgba(0, 219, 233, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 24px rgba(0, 219, 233, 0.1);
+}
+
+.glow-line {
+  box-shadow: 0 0 15px 2px var(--primary-glow);
+}
+
+/* ==================== Neural Mesh Background ==================== */
+.neural-mesh {
+  background-image: radial-gradient(var(--neural-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.12;
+}
+
+/* ==================== Scanning Lines ==================== */
+/* Vertical scan (for cards) */
+.scanning-line-v {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #00dbe9, transparent);
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0%   { top: 0%;   opacity: 0; }
+  50%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Horizontal scan (for stat values) */
+.scanning-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanning-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00dbe9, transparent);
+  animation: scanH 3s linear infinite;
+}
+
+@keyframes scanH {
+  0%   { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Vertical scan-line (for video player) */
+.scan-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00dbe9, transparent);
+  animation: scanV 4s linear infinite;
+}
+
+@keyframes scanV {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+/* ==================== Reasoning Line ==================== */
+.reasoning-line {
+  position: relative;
+}
+
+.reasoning-line::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #00dbe9;
+  box-shadow: 0 0 8px #00dbe9;
+  opacity: 0.6;
+}
+
+/* ==================== Writing Cursor Effect ==================== */
+.writing-effect::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ==================== Radial Progress Gauge ==================== */
+.radial-progress {
+  --value: 0;
+  --size: 120px;
+  --thickness: 8px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  background: radial-gradient(closest-side, #0e0e0e 80%, transparent 0 100%),
+    conic-gradient(var(--color) calc(var(--value) * 1%), #2a2a2a 0);
+}
+
+/* ==================== Custom Scrollbar ==================== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b494b;
+  border-radius: 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==================== Material Symbols ==================== */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+/* ==================== Base ==================== */
+body {
+  background-color: #0e0e0e;
+  color: #e5e2e1;
+  overflow-x: hidden;
+}
